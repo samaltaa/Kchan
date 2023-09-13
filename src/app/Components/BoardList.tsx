@@ -3,7 +3,9 @@ import React from 'react'
 function BoardList() {
   return (
     <div className='container mx-auto px-4 py-2'>
-        <h1 className='text-xl'>Boards</h1>
+         <div>
+            <h1 className='text-xl  px-4 font-bold bg-blue-300'>Boards</h1>
+        </div>
         <div className='flex flex-col border justify-center px-4 py-4 space-y-4 md:flex-row md:space-y-0'>
                 
                 <div className='pr-4'>
