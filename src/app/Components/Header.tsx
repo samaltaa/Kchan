@@ -16,10 +16,22 @@ function Header() {
     </div>
     <div>
       <nav className="space-x-4">
-        <a href="/">/kkhistory/</a>
-        <a href="/board1">/kkhelp/</a>
-        <a href="/board2">/kkgym/</a>
-        {/* TODO: Add more board links as needed */}
+        <a href="/">/a/</a>
+        <a href="/board1">/v/</a>
+        <a href="/board2">/mu/</a>
+        <a href="/tv/">/tv/</a>
+        <a href="/g/">/g/</a>
+        <a href="/b/">/b/</a>
+        <a href="/pol/">/pol/</a>
+        <a href="/w/">/w/</a>
+        <a href="/h/">/h/</a>
+        <a href="/r/">/r/</a>
+        <a href="/x/">/x/</a>
+        <a href="/fit/">/fit/</a>
+        <a href="/c/">/c/</a>
+        <a href="/o/">/o/</a>
+        <a href="/vg/">/vg/</a>
+        <a href="/k/">/k/</a>
       </nav>
     </div>
   </div>
