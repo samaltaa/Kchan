@@ -27,3 +27,13 @@ app.post('threads', async(req, res) =>{
         res.status(500).json({message: Error.message})
     }
 })
+
+mongoose.connect("LINK TO CLUSTER")
+.then(() => {
+    app.listen(3000, () => {
+        console.log('listening in port: 3000')
+    })
+    console.log("connected to database")
+}).catch(() => {
+    console.log(Error)
+})
