@@ -12,36 +12,36 @@ function BoardList() {
                     <h2>Hobbies</h2>
                     <ul>
                         <li>/a/ - Anime & Manga</li>
-                        <li>/v/ - Video Games</li>
+                        <li>/v/ - Video Juegos</li>
                         <li>/t/ - Torrents</li>
                         <li>/o/ - Auto</li>
                     </ul>
                 </div>
                 <div className='pr-4'>
-                    <h2>Culture</h2>
+                    <h2>Cultura</h2>
                     <ul>
                         <li>/tv/ - Television & Film</li>
-                        <li>/mu/ - Music</li>
-                        <li>/lit/ - Literature</li>
-                        <li>/his/ - History & Humanities</li>
+                        <li>/mu/ - Musica</li>
+                        <li>/lit/ - Literatura</li>
+                        <li>/his/ - Historoa & Humanidadess</li>
                     </ul>
                 </div>
                 <div className='pr-4'>
-                    <h2>Creative</h2>
+                    <h2>Creatividad</h2>
                     <ul>
                         <li>/w/ - Wallpapers</li>
-                        <li>/ic/ - Artwork/Critique</li>
+                        <li>/ic/ - Art/Dibujos/Criticismo</li>
                         <li>/po/ - Papercraft & Origami</li>
                         <li>/wg/ - Wallpapers/General</li>
                     </ul>
                 </div>
                 <div className='pr-4'>
-                    <h2>Other</h2>
+                    <h2>Technologia</h2>
                     <ul>
-                        <li>/an/ - Animals & Nature</li>
+                        <li>/wa/ - Armas</li>
                         <li>/diy/ - Do It Yourself</li>
-                        <li>/sci/ - Science & Math</li>
-                        <li>/g/ - Technology</li>
+                        <li>/sci/ - Ciencia & Matematicas</li>
+                        <li>/g/ - Tecnologia</li>
                     </ul>
                 </div>
                 <div className='pr-4'>

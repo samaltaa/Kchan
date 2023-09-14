@@ -20,9 +20,9 @@ function Header() {
         <a href="/board1">/v/</a>
         <a href="/board2">/mu/</a>
         <a href="/tv/">/tv/</a>
-        <a href="/g/">/g/</a>
-        <a href="/b/">/b/</a>
-        <a href="/pol/">/pol/</a>
+        <a href="/g/">/wa/</a>
+        <a href="/b/">/lit/</a>
+        <a href="/pol/">/h/</a>
         <a href="/w/">/w/</a>
         <a href="/h/">/h/</a>
         <a href="/r/">/r/</a>
