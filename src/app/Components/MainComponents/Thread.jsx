@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Button from "./UI_Components/PostButton";
-import ThreadReply from "../Components/UI_Components/ThreadReply"
+import Button from "../UI_Components/PostButton";
+import ThreadReply from "../UI_Components/ThreadReply";
 
 function Thread() {
   const [threadData, setThreadData] = useState({});
@@ -17,8 +17,6 @@ function Thread() {
       creator: "anonymous",
       timestamp: "3 hours ago",
     };
-
-    
 
     setThreadData(threadData);
   }, []);
@@ -41,8 +39,8 @@ function Thread() {
         <p className="mt-4">{threadData.content}</p>
       </div>
       <div className="w-2/3">
-      {/*TODO: place replies components here */}
-        <ThreadReply/>
+        {/*TODO: place replies components here */}
+        <ThreadReply />
       </div>
       {/* TODO: add reply form component */}
 
