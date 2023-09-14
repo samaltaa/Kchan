@@ -4,7 +4,7 @@ import React from 'react'
 
 function Header() {
   return (
-    <header className="bg-blue-500 py-4">
+    <header className="bg-blue-500 py-4 text-yellow-400 ">
   <div className="container mx-auto flex flex-col items-center justify-center">
     <div className="flex items-center mb-4">
       <img

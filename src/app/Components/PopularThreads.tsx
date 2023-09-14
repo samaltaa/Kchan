@@ -2,9 +2,9 @@ import React from 'react'
 
 function PopularThreads() {
   return (
-    <div className='container mx-auto px-4 py-2'>
+    <div className='container text-yellow-400 mx-auto px-4 py-2'>
          <div>
-            <h1 className='text-xl  px-4 font-bold bg-blue-300'>Popular Threads</h1>
+            <h1 className='text-xl  px-4 font-bold bg-blue-500'>Popular Threads</h1>
         </div>
         <div className='flex flex-col border justify-center px-4 py-4 space-y-4 md:flex-row md:space-y-0'>
         <div className='pr-4 flex flex-col items-center'>
