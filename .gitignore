@@ -34,7 +34,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/next.config.js
-/tailwind.config.ts
-/tsconfig.json
-/next-env.d.ts
+next.config.js
+tailwind.config.ts
+tsconfig.json
+next-env.d.ts
