@@ -4,6 +4,7 @@ import BoardList from "./Components/MainComponents/BoardList";
 import PopularThreads from "./Components/MainComponents/PopularThreads";
 import Thread from "./Components/MainComponents/Thread";
 import ReplyForm from "./Components/MainComponents/ReplyForm"
+
 export default function Home() {
   return (
     <div>
@@ -11,7 +12,6 @@ export default function Home() {
       <BoardList />
       <PopularThreads />
       <Thread />
-      <ReplyForm/>
     </div>
   );
 }
