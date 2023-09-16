@@ -51,18 +51,31 @@ function ThreadReply() {
       setReplies(replies)
     }, [])
   return (
+
     <div>
         {replies.map((reply) => (
-        <div key={reply.id} className=" border w-2/3 bg-blue-500 text-white p-2  mb-2">
-        <div className='flext'>
-          <p className="text-gray-600 px-2">
-            <span className='text-yellow-300 font-bold'>~ {reply.creator}</span> • {reply.timestamp} • hilo: #88123</p>
-        </div>
-          <img src={reply.image}
-                className='w-9px h-13px'
-          /> 
-          <p className="text-white mt-2">{reply.content}</p>
-        </div>
+        <div
+            key={replies.id}
+            className="border bg-blue-500 text-white p-2 mb-2"
+            style={{
+                width: '100%', // Adjust the width as needed
+                height: 'auto', // Adjust the height as needed
+            }}
+    >
+      <div className="flex">
+        <p className="text-gray-600 px-2">
+          <span className="text-yellow-300 font-bold">~ {reply.creator}</span> • {reply.timestamp} • hilo: #88123
+        </p>
+      </div>
+      <div>
+        <img
+            src={reply.image}
+            className="w-12 h-13" // Adjust the dimensions as needed
+        />
+      </div> 
+      <p className="text-white mt-2">{reply.content}</p>
+    </div>
+        
       ))}
     </div>
   )
