@@ -102,7 +102,7 @@ function ThreadReply() {
 
       {replies.length > visibleReplies && (
         <button
-          className='bg-blue-500 text-white px-4 py-2 rounded-md mt-2'
+          className='bg-blue-500 text-white px-4 py-2 rounded-md mt-2 mb-2'
           onClick={handleShowMore}
           >
           Ver Mas...
