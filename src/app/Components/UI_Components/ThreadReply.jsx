@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 
 function ThreadReply() {
     const [replies, setReplies] = useState([]);
-    const [isImageClicked, setIsImageClicked] = useState(false);
-
+    const [visibleReplies, setVisibleReplies] = useState(3); // Number of initially visible replies
+    const [showMore, setShowMore] = useState(false);
 
     useEffect(() => {
         //simulated replies data
@@ -61,11 +61,15 @@ function ThreadReply() {
           },
       ];
       setReplies(replies)
-    }, [])
+    }, []);
+
+    const handleShowMore =()=>{
+      setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + 10);
+    }
   return (
 
     <div>
-        {replies.map((reply) => (
+        {replies.slice(0, visibleReplies).map((reply) => (
         <div
             key={replies.id}
             className="border bg-blue-500 text-white p-2 mb-2"
@@ -94,8 +98,16 @@ function ThreadReply() {
       )}
       <p className='text-white p-5'>{reply.content}</p>
       </div>
-        
       ))}
+
+      {replies.length > visibleReplies && (
+        <button
+          className='bg-blue-500 text-white px-4 py-2 rounded-md mt-2'
+          onClick={handleShowMore}
+          >
+          Ver Mas...
+        </button>
+      )}
     </div>
   )
 }
