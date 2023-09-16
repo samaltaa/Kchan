@@ -47,6 +47,18 @@ function ThreadReply() {
           creator: "u/anonimo697204",
           timestamp: "hace 2 hora(s)",
         },
+        {
+            id: 6,
+            content: "Trujillo fue un líder carismático y visionario que dejó una huella imborrable en la historia dominicana",
+            creator: "u/anonimo697207",
+            timestamp: "hace 2 hora(s)",
+          },
+          {
+            id: 6,
+            content: "La era de Trujillo abarcó décadas de transformación y desafíos para la República Dominicana, influenciando su desarrollo político y social de manera significativa.",
+            creator: "u/anonimo697294",
+            timestamp: "hace 2 hora(s)",
+          },
       ];
       setReplies(replies)
     }, [])
@@ -67,14 +79,21 @@ function ThreadReply() {
           <span className="text-yellow-300 font-bold">~ {reply.creator}</span> • {reply.timestamp} • hilo: #88123
         </p>
       </div>
-      <div>
-        <img
+      {reply.image && ( // Render the image if it exists
+        <div
+          style={{
+            width: '12rem', // Set width to maintain the golden ratio (w-12)
+            height: '13rem', // Set height to maintain the golden ratio (h-13)
+          }}
+        >
+          <img
             src={reply.image}
-            className="w-12 h-13" // Adjust the dimensions as needed
-        />
-      </div> 
-      <p className="text-white mt-2">{reply.content}</p>
-    </div>
+            className="w-full h-full object-cover" // Make the image cover the entire container
+          />
+        </div>
+      )}
+      <p className='text-white p-5'>{reply.content}</p>
+      </div>
         
       ))}
     </div>
