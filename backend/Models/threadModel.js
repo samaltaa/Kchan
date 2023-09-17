@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 
 const threadSchema = new mongoose.Schema({
-  title: String,
-  content: String,
-  author: String,
-  boardId: mongoose.Schema.Types.ObjectId,
-  created_at: Date,
-  image: String,
+    id: String,
+    title: String,
+    content: String,
+    author: String,
+    boardId: mongoose.Schema.Types.ObjectId,
+    created_at: Date,
+    image: String,
 });
 
 const Threads = mongoose.model('threads', threadSchema);

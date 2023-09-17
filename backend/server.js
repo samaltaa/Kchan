@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: false}))
 //routes
 
 app.get('/', (req, res) => {
-    res.send('Hello NODE API')
+    res.send('Servidor KKchan Activo mmg!')
 })
 
 app.get('/threads', async(req, res) => {
@@ -78,10 +78,10 @@ app.delete('/threads/:id', async(req, res) =>{
 
 mongoose.set("strictQuery", false)
 mongoose.
-connect('')
+connect('mongodb+srv://baalibshmym:123456holahola@imageboarddb.pszjrtr.mongodb.net/?retryWrites=true&w=majority')
 .then(() => {
     console.log('connected to MongoDB')
-    app.listen(3000, ()=> {
+    app.listen(3001, ()=> {
         console.log(`Node API app is running on port 3000`)
     });
 }).catch((error) => {
