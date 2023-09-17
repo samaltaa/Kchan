@@ -6,6 +6,13 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
+//Function to generate random boardID
+function generateBoardID() {
+    const randomNumbers = Math.random().toString().substring(2, 12);
+    const boardID = "h" + randomNumbers;
+    return boardID;
+}
+
 //routes
 
 app.get('/', (req, res) => {
@@ -34,7 +41,17 @@ app.get('/threads/:id', async(req, res) =>{
 
 app.post('/threads', async(req, res) => {
     try {
-        const threads = await Threads.create(req.body)
+        //generate random boardID
+        const boardID = generateBoardID();
+
+        //create new thread document with the generated boardID
+        const newThread = {
+            boardId: boardID,
+            title: req.body.title,
+            content: req.body.content,
+            author: req.body.author,
+        }
+        const threads = await Threads.create(newThread)
         res.status(200).json(threads);
         
     } catch (error) {

@@ -5,7 +5,7 @@ const threadSchema = new mongoose.Schema({
     title: String,
     content: String,
     author: String,
-    boardId: mongoose.Schema.Types.ObjectId,
+    boardId: String,
     created_at: Date,
     image: String,
 });
