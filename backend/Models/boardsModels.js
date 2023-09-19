@@ -20,11 +20,11 @@ const Board = mongoose.model('Boards', {
     image:{type:String},
 });
 
-const boards = mongoose.model('boards', boardSchema);
+const Boards = mongoose.model('boards', boardSchema);
 
 // Create function for creating a new board document
-Board.createBoard = async (body) => {
-    return await Board.create(body);
+Boards.createBoard = async (body) => {
+    return await Boards.create(body);
   };
   
 module.exports = Board
