@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
     res.send('Servidor KKchan Activo mmg!')
 })
 
+//threads routes 
 app.get('/threads', async(req, res) => {
     try {
         const threads = await Threads.find({});
@@ -79,6 +80,31 @@ app.delete('/threads/:id', async(req, res) =>{
     }
 })
 
+//thread replies routes
+
+app.get('/threadreplies', async(req, res) => {
+    try{
+        const replies = await ThreadReplies.find({});
+        res.status(200).json(replies);
+    }catch(error){
+        res.status(500).json({message: error.message})
+    }
+});
+
+app.post('/threadreplies', async(req, res) =>{
+    try{
+        const newReply ={
+            content: req.body.content,
+            creator: req.body.creator,
+            image: req.body.image
+        }
+        const reply = await ThreadReplies.create(newReply)
+        res.status(200).json(reply)
+    }catch(error){
+        console.log(error.message);
+        res.status(500).json({message: error.message})
+    }
+})
 mongoose.set("strictQuery", false)
 mongoose.
 connect('mongodb+srv://baalibshmym:123456holahola@imageboarddb.pszjrtr.mongodb.net/?retryWrites=true&w=majority')
