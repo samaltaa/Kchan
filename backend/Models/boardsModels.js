@@ -2,34 +2,21 @@ const mongoose = require("mongoose")
 
 const boardSchema = mongoose.Schema(
     {
-        id:{
-            type: String,
-            required: [true] 
-        },
         title:{
             type: String,
         },
-        content:{
+        description:{
             type: String,
             require: [true]
-        },
-        creator: {
-            type: String,
-        },
-        timestamp:{
-            type: String,
         },
         image:{
             type: String,
         }
     }
 )
-const Boards = mongoose.model('Boards', {
-    id:{type: String},
+const Board = mongoose.model('Boards', {
     title:{type:String},
-    content:{type:String},
-    creator:{type:String},
-    timestamp:{type:String},
+    description:{type:String},
     image:{type:String},
 });
 
@@ -40,4 +27,4 @@ Board.createBoard = async (body) => {
     return await Board.create(body);
   };
   
-module.exports = Boards
+module.exports = Board
