@@ -3,6 +3,7 @@ import Header from "./Components/MainComponents/Header";
 import BoardList from "./Components/MainComponents/BoardList";
 import PopularThreads from "./Components/MainComponents/PopularThreads";
 import Thread from "./Components/MainComponents/Thread";
+import CreateThread from "./Components/MainComponents/CreateThread";
 import ReplyForm from "./Components/MainComponents/ReplyForm"
 
 export default function Home() {
@@ -11,7 +12,8 @@ export default function Home() {
       <Header />
       <BoardList />
       <PopularThreads />
-      <Thread />
+      <CreateThread/>
+      <Thread/>
     </div>
   );
 }

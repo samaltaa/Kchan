@@ -4,18 +4,21 @@ const threadSchema = new mongoose.Schema({
     id: String,
     title: String,
     content: String,
-    author: String,
+    creator: {type:String, default: "anonimo"},
     boardId: String,
-    created_at: Date,
+    timestamp: Date,
     image: String,
+});
+
+threadSchema.pre('save', function(next) {
+    this.id = this.boardId.slice(0, 2) + Math.floor(Math.random() * 900000000 + 100000000);
+    next();
 });
 
 const Threads = mongoose.model('threads', threadSchema);
 
-// Create function for creating a new thread document
 Threads.createThread = async (body) => {
   return await Threads.create(body);
 };
 
 module.exports = Threads;
-

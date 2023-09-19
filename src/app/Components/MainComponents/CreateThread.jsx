@@ -1,8 +1,8 @@
-'usec client'
-import React, {useState, useEffect} from 'react'
+'use client'
+import React, {useState} from 'react'
 
-const ReplyForm = ()=> {
-    const [name, setName] = useState('Anonymous');
+const CreateThread = ()=> {
+    const [name, setName] = useState('anonimo');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
@@ -24,14 +24,14 @@ const ReplyForm = ()=> {
         setSelectedFile(file);
     };
 
-    const handleReplySubmit = () =>{
+    const handleThreadSubmit = () =>{
         const formData = new FormData();
         formData.append('name', name);
         formData.append('subject', subject);
         formData.append('message', message);
         formData.append('file', selectedFile);
 
-        fetch('/threads', {
+        fetch('http://localhost:3001/threads', {
             method: 'POST',
             body: formData
         })
@@ -45,12 +45,12 @@ const ReplyForm = ()=> {
     <div className=' w-1/2'>
         <form className='bg-blue-400 shadow-md rounded px-8 pt-6 pb-8 mb-4'>
             <div className='mb-4'>
-                <label className='pr-2 text-gray-700 text-sm font-bold mb-2'>Name:</label>
+                <label className='pr-2 text-gray-500 text-sm font-bold mb-2'>Name:</label>
                 <input
                     type='text'
                     value={name}
                     onChange={handleName}
-                    className='w-50'
+                    className='w-50 text-black'
                 />
             </div>
 
@@ -60,7 +60,7 @@ const ReplyForm = ()=> {
                 type="text"
                 value={subject}
                 onChange={handleSubject}
-                className="w-50"
+                className="w-50 text-black"
                 />
             </div>
 
@@ -81,10 +81,13 @@ const ReplyForm = ()=> {
                 onChange={handleFiles}
                 />
             </div>
+            <button onClick={handleThreadSubmit} className='button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 rounded'>
+                Submit
+            </button>
         </form>
 
     </div>
   )
 }
 
-export default ReplyForm
+export default CreateThread
