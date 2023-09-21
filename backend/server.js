@@ -95,8 +95,9 @@ app.get('/replies', async(req, res) => {
 app.post('/replies', async(req, res) =>{
     try{
         const newReply ={
-            content: req.body.content,
             creator: req.body.creator,
+            subject: req.body.subject,
+            content: req.body.content,
             image: req.body.image
         }
         const reply = await ThreadReplies.create(newReply)

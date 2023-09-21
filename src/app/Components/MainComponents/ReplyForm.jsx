@@ -1,90 +1,109 @@
-'usec client'
-import React, {useState, useEffect} from 'react'
+"usec client";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const ReplyForm = ()=> {
-    const [name, setName] = useState('Anonymous');
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
-    const [selectedFile, setSelectedFile] = useState(null);
 
-    const handleName = (e) => {
-        setName(e.target.value);
-    };
+const ReplyForm = () => {
+  const [creator, setCreator] = useState("Anonymous");
+  const [subject, setSubject] = useState("");
+  const [content, setContent] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
-    const handleSubject = (e) =>{
+// Function to handle creator input change
+  const handleCreator = (e) => {
+        setCreator(e.target.value);
+      };
+    
+ // Function to handle subject input change
+  const handleSubject = (e) => {
         setSubject(e.target.value);
-    };
+      };
+    
+  // Function to handle content input change
+  const handleContent = (e) => {
+        setContent(e.target.value);
+      };
+    
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleMessage = (e) => {
-        setMessage(e.target.value);
-    };
+    try{
+        const response = await axios.post("", {
+            creator,
+            subject,
+            content,
 
-    const handleFiles = (e) =>{
-        const file = e.target.files[0];
-        setSelectedFile(file);
-    };
-
-    const handleReplySubmit = () =>{
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('subject', subject);
-        formData.append('message', message);
-        formData.append('file', selectedFile);
-
-        fetch('/threads', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch((error) => {
-            console.error('Error:', error);
         });
+
+        console.log("Respuesta enviada:", response.data);
+
+        setSubject("");
+        setContent("");
+    } catch(error){
+        console.error("Error", error)
     }
+  };
+
   return (
-    <div className=' w-1/2'>
-        <form className='bg-blue-400 shadow-md rounded px-8 pt-6 pb-8 mb-4'>
-            <div className='mb-4'>
-                <label className='pr-2 text-gray-700 text-sm font-bold mb-2'>Name:</label>
-                <input
-                    type='text'
-                    value={name}
-                    onChange={handleName}
-                    className='w-50'
-                />
-            </div>
+    <div className=" w-1/2">
+      <form
+        className="bg-blue-400 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        onSubmit={handleSubmit}
+      >
+        <div className="mb-4">
+          <label className="pr-2 text-gray-700 text-sm font-bold mb-2">
+            Creator:
+          </label>
+          <input
+            creator="creator"
+            type="text"
+            value={creator}
+            onChange={handleCreator}
+            className="w-50 text-black"
+          />
+        </div>
 
-            <div className='mb-4'>
-                <label className='pr-2 text-gray-700 text-sm font-bold mb-2'>Subject:</label>
-                <input
-                type="text"
-                value={subject}
-                onChange={handleSubject}
-                className="w-50"
-                />
-            </div>
+        <div className="mb-4">
+          <label className="pr-2 text-gray-700 text-sm font-bold mb-2">
+            Subject:
+          </label>
+          <input
+            subject="subject"
+            type="text"
+            value={subject}
+            onChange={handleSubject}
+            className="w-50 text-black"
+          />
+        </div>
 
-            <div className='mb-2 flex items-center'>
-                <label className='pr-2 text-gray-700 text-sm font-bold mb-2'>Message:</label>
-                <textarea
-                value={message}
-                onChange={handleMessage}
-                className="w-30 h-50 text-black"
-                />
-            </div>
+        <div className="mb-2 flex items-center">
+          <label className="pr-2 text-gray-700 text-sm font-bold mb-2">
+            Content:
+          </label>
+          <textarea
+            content="content"
+            type="text"
+            value={content}
+            onChange={handleContent}
+            className="w-30 h-50 text-black"
+          />
+        </div>
 
-            <div className=''>
-                <label className='pr-2 text-gray-700 text-sm font-bold mb-2'>Choose File:</label>
-                <input
-                type="file"
-                accept="image/*"
-                onChange={handleFiles}
-                />
-            </div>
-        </form>
-
+        <div className="">
+          <label className="pr-2 text-gray-700 text-sm font-bold mb-2">
+            Choose File:
+          </label>
+          <input type="file" accept="image/*" />
+        </div>
+        <button
+          type="submit"
+          className="button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-2 rounded"
+        >
+          Submit
+        </button>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default ReplyForm
+export default ReplyForm;

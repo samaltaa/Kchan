@@ -3,8 +3,8 @@ import Header from "./Components/MainComponents/Header";
 import BoardList from "./Components/MainComponents/BoardList";
 import PopularThreads from "./Components/MainComponents/PopularThreads";
 import Thread from "./Components/MainComponents/Thread";
+import ReplyForm from "./Components/UI_Components/Test";
 import CreateThread from "./Components/MainComponents/CreateThread";
-import ReplyForm from "./Components/MainComponents/ReplyForm"
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       <BoardList />
       <PopularThreads />
-      <CreateThread/>
+      <ReplyForm/>
       <Thread/>
     </div>
   );
