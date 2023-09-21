@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const Threads = require('./Models/threadModel')
+const ThreadReplies = require("./Models/threadRepliesModel")
 const cors = require("cors")
 const app = express()
 
@@ -82,7 +83,7 @@ app.delete('/threads/:id', async(req, res) =>{
 
 //thread replies routes
 
-app.get('/threadreplies', async(req, res) => {
+app.get('/replies', async(req, res) => {
     try{
         const replies = await ThreadReplies.find({});
         res.status(200).json(replies);
@@ -91,7 +92,7 @@ app.get('/threadreplies', async(req, res) => {
     }
 });
 
-app.post('/threadreplies', async(req, res) =>{
+app.post('/replies', async(req, res) =>{
     try{
         const newReply ={
             content: req.body.content,
@@ -102,6 +103,19 @@ app.post('/threadreplies', async(req, res) =>{
         res.status(200).json(reply)
     }catch(error){
         console.log(error.message);
+        res.status(500).json({message: error.message})
+    }
+})
+
+app.delete('/replies/:id', async(req, res) => {
+    try{
+        const {id} = req.params;
+        const reply = await ThreadReplies.findByIdAndDelete(id);
+        if(!reply){
+            return res.status(404).json({message: "error!"})
+        }
+        res.status(200).json(reply);
+    } catch(error) {
         res.status(500).json({message: error.message})
     }
 })
