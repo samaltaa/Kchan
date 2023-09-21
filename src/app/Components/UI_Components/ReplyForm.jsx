@@ -17,20 +17,29 @@ function ReplyForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post('http://localhost:3001/replies', {
-        creator,
-        subject,
-        content,
-        // Add other fields like image if needed
-      });
+    try{
+      const formData = new FormData();
+      formData.append("creator", creator);
+      formData.append("subject", subject);
+      formData.append("content", content);
+      if (image) {
+        formData.append("image", image);
+      }
+
+      const response = await axios.post('http://localhost:3001/replies', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data', // Set content type for file upload
+      },
+    });
 
       // Handle the response from the server, e.g., display a success message.
       console.log('Reply created:', response.data);
 
-      // Reset form fields after successful submission
+      //reset form field
       setSubject("");
       setContent("");
+      setImage(null);
+      
     } catch (error) {
       console.error('Error:', error);
       // Handle any error that occurred during submission
@@ -41,6 +50,7 @@ function ReplyForm() {
     <div className=" w-1/2">
 
       <form 
+      encType='multipart/form-data'
       className="bg-blue-400 shadow-md rounded px-8 pt-6 pb-8 mb-4"
       onSubmit={handleSubmit}>
       <h2 className='mb-6 font-bold'>Crear Respuesta</h2>

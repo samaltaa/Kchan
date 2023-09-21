@@ -39,7 +39,7 @@ function ThreadReply() {
           }}
         >
           <img
-            src={reply.image}
+            src={`http://localhost:3001/${reply.image}`} alt="Uploaded" 
             className="w-full h-full object-cover" // Make the image cover the entire container
           />
         </div>

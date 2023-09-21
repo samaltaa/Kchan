@@ -5,7 +5,7 @@ const threadRepliesSchema = new mongoose.Schema({
     content: String,
     subject: String,
     timestamp: {type: Date, default: Date.now},
-    image: {type: String, default: ""}
+    image: String,
 });
 
 const ThreadReplies = mongoose.model('threadreplies', threadRepliesSchema);

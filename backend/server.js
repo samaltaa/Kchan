@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const multer = require("multer")
 const Threads = require('./Models/threadModel')
 const ThreadReplies = require("./Models/threadRepliesModel")
 const cors = require("cors")
@@ -7,6 +8,20 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+
+//multer set up
+const storage = multer.diskStorage({
+    destination: (req, file, cb) =>{
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '_' + file.originalname);
+    }
+});
+
+const upload = multer({ storage });
+
+app.use('/uploads', express.static('uploads'));
 
 app.use(cors({
     origin: '*',
@@ -92,13 +107,13 @@ app.get('/replies', async(req, res) => {
     }
 });
 
-app.post('/replies', async(req, res) =>{
+app.post('/replies', upload.single('image'), async(req, res) =>{
     try{
         const newReply ={
             creator: req.body.creator,
             subject: req.body.subject,
             content: req.body.content,
-            image: req.body.image
+            image: req.file ? `uploads/${req.file.filename}` : "",
         }
         const reply = await ThreadReplies.create(newReply)
         res.status(200).json(reply)
@@ -106,7 +121,9 @@ app.post('/replies', async(req, res) =>{
         console.log(error.message);
         res.status(500).json({message: error.message})
     }
-})
+});
+
+
 
 app.delete('/replies/:id', async(req, res) => {
     try{
