@@ -3,9 +3,10 @@ const mongoose = require('mongoose')
 const multer = require("multer")
 const Threads = require('./Models/threadModel')
 const ThreadReplies = require("./Models/threadRepliesModel")
+const Boards = require('./Models/boardsModels')
+
 const cors = require("cors")
 const app = express()
-
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
@@ -123,7 +124,29 @@ app.post('/replies', upload.single('image'), async(req, res) =>{
     }
 });
 
-
+//boards routes
+app.get('/boards', async(req, res) => {
+    try {
+        const boards = await Boards.find({});
+        res.status(200).json(boards);
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+app.post('/boards', async(req, res) => {
+    try{
+        const newBoard ={
+            boardID: req.body.boardID,
+            title: req.body.title,
+            description: req.body.description,
+            image: req.body.image
+        }
+        const board = await Boards.create(newBoard)
+        res.status(200).json(board)
+    }catch(error){ 
+        res.status(500).json({message: error.message})
+    }
+})
 
 app.delete('/replies/:id', async(req, res) => {
     try{

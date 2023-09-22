@@ -2,6 +2,9 @@ const mongoose = require("mongoose")
 
 const boardSchema = mongoose.Schema(
     {
+        boardID:{
+            type: String,
+        },
         title:{
             type: String,
         },
