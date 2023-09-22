@@ -20,7 +20,7 @@ function ThreadReply() {
         {replies.slice(0, visibleReplies).map((reply) => (
         <div
             key={replies.id}
-            className="border bg-blue-500 text-white p-2 mb-2"
+            className="border bg-slate-900 text-white p-2 mb-2"
             style={{
                 width: '100%', // Adjust the width as needed
                 height: 'auto', // Adjust the height as needed

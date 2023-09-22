@@ -13,14 +13,14 @@ function Thread() {
   }, []);
 
   return (
-    <div className="p-4 flex flex-col items-center text-white">
+    <div className="p-4 flex flex-col   text-white">
       {threads.map((thread) => (
-        <div key={thread.id} className="w-2/3 bg-blue-400 px-4 mb-4">
+        <div key={thread.id} className="w-2/3 bg-black px-4 mb-4 border ">
           <h1 className="text-2xl font-semibold">{thread.title}</h1>
           <p className="text-gray-600">
             <span className="text-yellow-300 font-bold">{thread.creator}</span> • {thread.timestamp} • thread ID: {thread._id}
           </p>
-          <div className="w-2/3 bg-blue-400 px-1 mb-4">
+          <div className="w-2/3 bg-black px-1 mb-4">
           {thread.image && (
             <div
               style={{

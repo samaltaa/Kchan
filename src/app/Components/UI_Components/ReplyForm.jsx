@@ -47,11 +47,11 @@ function ReplyForm() {
   };
 
   return (
-    <div className=" w-1/2">
+    <div className="w-1/2 mt-4">
 
       <form 
       encType='multipart/form-data'
-      className="bg-blue-400 shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      className="bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 mb-4 border"
       onSubmit={handleSubmit}>
       <h2 className='mb-6 font-bold'>Crear Respuesta</h2>
         <div className="mb-4">

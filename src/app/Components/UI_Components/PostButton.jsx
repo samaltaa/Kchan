@@ -32,7 +32,7 @@ function Button() {
   } 
   return (
     <div>
-      <button onClick={toggleModal} className='button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+      <button onClick={toggleModal} className='button bg-slate-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border'>
         Responder
       </button>
       {modal}
