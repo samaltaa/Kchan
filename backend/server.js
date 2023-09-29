@@ -133,6 +133,17 @@ app.get('/boards', async(req, res) => {
         res.status(500).json({message: error.message})
     }
 })
+
+app.get('/boards/:boardID', async(req, res) =>{
+    const boardID = req.params.boardID;
+    try{
+        const board = await BoardModel.findOne({ boardID});
+        res.json(board);
+    }catch(error){
+        console.error(error);
+        res.status(500).json({error: 'server error'});
+    }
+});
 app.post('/boards', async(req, res) => {
     try{
         const newBoard ={
